@@ -1,8 +1,4 @@
 CC=gcc
 
-
-build: main.o
-	$(CC) -o a main.o
-
-run: main.o
-	$(CC) -o a main.o && ./a
+run: cpu.o stack.o decoder.o
+	$(CC) -o a -Wall cpu.o stack.o decoder.o && ./a

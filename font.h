@@ -1,3 +1,5 @@
+
+#ifndef FONTSET_SIZE
 #define FONTSET_SIZE 80
 
 uint8_t fontset[FONTSET_SIZE] =
@@ -19,3 +21,5 @@ uint8_t fontset[FONTSET_SIZE] =
 	0xF0, 0x80, 0xF0, 0x80, 0xF0, // E
 	0xF0, 0x80, 0xF0, 0x80, 0x80  // F
 };
+
+#endif
