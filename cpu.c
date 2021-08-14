@@ -242,16 +242,16 @@ void display_sprite(struct chip8 *chip, unsigned short x, unsigned short y, unsi
 
     if(n > 15){
         fprintf(stderr, "Sprite size %hu is invalid. Must be <= 15\n", n);
-        exit(1);
+        return;
     }
     /* Display is 64 x 32 */
     if(x_pos % 8 != 0 || y_pos % 8 != 0){
-        fprintf(stderr, "Screen coordinates must be byte aligned (%hhu, %hhu)\n", x_pos, y_pos);
-        exit(1);
+        //fprintf(stderr, "Screen coordinates must be byte aligned (%hhu, %hhu)\n", x_pos, y_pos);
+        //return;
     }
     if(x_pos >= DISPLAY_WIDTH || y_pos >= DISPLAY_HEIGTH){
-        fprintf(stderr, "Coordinates out of screen (%hhu, %hhu)\n", x_pos, y_pos);
-        exit(1);
+        //fprintf(stderr, "Coordinates out of screen (%hhu, %hhu)\n", x_pos, y_pos);
+        return;
     }
     chip->registers[0xf] = 0;
     for(unsigned short i = 0; i < n; i++){
