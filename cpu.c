@@ -241,16 +241,16 @@ void display_sprite(struct chip8 *chip, unsigned short x, unsigned short y, unsi
     unsigned char y_pos = chip->registers[y];
 
     if(n > 15){
-        sprintf(2, "Sprite size %hu is invalid. Must be <= 15\n", n);
+        fprintf(stderr, "Sprite size %hu is invalid. Must be <= 15\n", n);
         exit(1);
     }
     /* Display is 64 x 32 */
     if(x_pos % 8 != 0 || y_pos % 8 != 0){
-        sprintf(2, "Screen coordinates must be byte aligned (%hhu, %hhu)\n", x_pos, y_pos);
+        fprintf(stderr, "Screen coordinates must be byte aligned (%hhu, %hhu)\n", x_pos, y_pos);
         exit(1);
     }
     if(x_pos >= DISPLAY_WIDTH || y_pos >= DISPLAY_HEIGTH){
-        sprintf(2, "Coordinates out of screen (%hhu, %hhu)\n", x_pos, y_pos);
+        fprintf(stderr, "Coordinates out of screen (%hhu, %hhu)\n", x_pos, y_pos);
         exit(1);
     }
     chip->registers[0xf] = 0;
@@ -326,7 +326,7 @@ void add_to_index(struct chip8 *chip, unsigned short x){
 
 /* I is set to the location of the sprite for digit Vx ?*/
 void load_location(struct chip8 *chip, unsigned short x){
-
+    chip->pc += 2;
 }
 
 /* Store BCD representation of the value in Vx into mem[I, I+1, I+2] */

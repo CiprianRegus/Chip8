@@ -1,4 +1,6 @@
 CC=gcc
+CFLAGS = -Wall
+OBJS = cpu.o stack.o decoder.o
 
-run: cpu.o stack.o decoder.o
-	$(CC) -o a -Wall cpu.o stack.o decoder.o && ./a
+run: $(OBJS)
+	$(CC) -o a $(CFLAGS) $(OBJS) && ./a
