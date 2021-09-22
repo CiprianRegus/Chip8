@@ -6,6 +6,7 @@
 #include <time.h>
 #include "stack.h"
 #include "cpu.h"
+#include <assert.h>
 
 void decode(struct chip8 *chip){
 
