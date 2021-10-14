@@ -3,7 +3,7 @@
 The Chip8 system has the following resources:
 
 - 16 (8 bit) general purpose registers
-- 4kB bit RAM
+- 4kB of RAM
 - 16 bit Index register
 - 16 bit Program counter
 - 16 bytes of stack space
